@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "transformation_name",
+  "source_value",
+  "target_value",
+  "column_break_1",
+  "company",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "transformation_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Transformation Name",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "source_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Target Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Leave blank to apply to all companies",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Value Transformation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  }
+ ],
+ "sort_field": "transformation_name",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}

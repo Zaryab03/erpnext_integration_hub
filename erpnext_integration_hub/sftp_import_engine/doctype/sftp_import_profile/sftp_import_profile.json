@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:profile_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile_name",
+  "company",
+  "is_active",
+  "import_source",
+  "file_import_profile",
+  "column_break_1",
+  "host",
+  "port",
+  "username",
+  "auth_type",
+  "password",
+  "private_key",
+  "private_key_passphrase",
+  "section_paths",
+  "remote_path",
+  "file_pattern",
+  "archive_remote_path",
+  "section_state",
+  "check_interval_minutes",
+  "connection_timeout",
+  "last_checked_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Profile Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "import_source",
+   "fieldtype": "Link",
+   "label": "Import Source",
+   "options": "Import Source",
+   "reqd": 1
+  },
+  {
+   "fieldname": "file_import_profile",
+   "fieldtype": "Link",
+   "label": "File Import Profile",
+   "options": "File Import Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "host",
+   "fieldtype": "Data",
+   "label": "SFTP Host",
+   "reqd": 1
+  },
+  {
+   "default": "22",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port",
+   "reqd": 1
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "auth_type",
+   "fieldtype": "Select",
+   "label": "Authentication Type",
+   "options": "Password\nSSH Key",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.auth_type==='Password'",
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "depends_on": "eval:doc.auth_type==='SSH Key'",
+   "description": "Paste full PEM-encoded private key content",
+   "fieldname": "private_key",
+   "fieldtype": "Password",
+   "label": "Private Key (PEM)"
+  },
+  {
+   "depends_on": "eval:doc.auth_type==='SSH Key'",
+   "fieldname": "private_key_passphrase",
+   "fieldtype": "Password",
+   "label": "Private Key Passphrase"
+  },
+  {
+   "fieldname": "section_paths",
+   "fieldtype": "Section Break",
+   "label": "Paths"
+  },
+  {
+   "description": "Remote directory containing files e.g. /incoming/orders/",
+   "fieldname": "remote_path",
+   "fieldtype": "Data",
+   "label": "Remote Path",
+   "reqd": 1
+  },
+  {
+   "description": "Glob pattern to match files e.g. orders_*.csv",
+   "fieldname": "file_pattern",
+   "fieldtype": "Data",
+   "label": "File Pattern",
+   "reqd": 1
+  },
+  {
+   "description": "Move processed files to this remote path. Leave blank to leave in place.",
+   "fieldname": "archive_remote_path",
+   "fieldtype": "Data",
+   "label": "Archive Remote Path"
+  },
+  {
+   "fieldname": "section_state",
+   "fieldtype": "Section Break",
+   "label": "Connection Settings"
+  },
+  {
+   "default": "10",
+   "fieldname": "check_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Check Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "default": "30",
+   "fieldname": "connection_timeout",
+   "fieldtype": "Int",
+   "label": "Connection Timeout (Seconds)"
+  },
+  {
+   "fieldname": "last_checked_at",
+   "fieldtype": "Datetime",
+   "label": "Last Checked At",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "SFTP Import Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

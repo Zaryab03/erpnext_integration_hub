@@ -1,0 +1,10 @@
+# File parsing
+openpyxl>=3.1.0
+lxml>=4.9.0
+jsonpath-ng>=1.6.0
+
+# SFTP
+paramiko>=3.3.0
+
+# Email (stdlib imaplib used; chardet for encoding detection)
+chardet>=5.0.0

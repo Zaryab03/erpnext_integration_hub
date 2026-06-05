@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "import_batch",
+  "import_batch_item",
+  "import_source",
+  "error_type",
+  "column_break_1",
+  "can_retry",
+  "retry_count",
+  "last_retry_at",
+  "is_resolved",
+  "resolved_by",
+  "resolved_at",
+  "section_error",
+  "error_message",
+  "stack_trace",
+  "section_data",
+  "row_number",
+  "raw_data_snapshot",
+  "section_resolution",
+  "resolution_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "IB-ERR-.YYYY.-.MM.-.DD.-.#####"
+  },
+  {
+   "fieldname": "import_batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Import Batch",
+   "options": "Import Batch",
+   "search_index": 1
+  },
+  {
+   "fieldname": "import_batch_item",
+   "fieldtype": "Link",
+   "label": "Batch Item",
+   "options": "Import Batch Item"
+  },
+  {
+   "fieldname": "import_source",
+   "fieldtype": "Link",
+   "label": "Import Source",
+   "options": "Import Source"
+  },
+  {
+   "fieldname": "error_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Error Type",
+   "options": "\nConnection\nAuthentication\nParse\nMapping\nValidation\nCreation\nSystem",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "can_retry",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Can Retry",
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "retry_count",
+   "fieldtype": "Int",
+   "label": "Retry Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_retry_at",
+   "fieldtype": "Datetime",
+   "label": "Last Retry At",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_resolved",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Resolved",
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.is_resolved",
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_resolved",
+   "fieldname": "resolved_at",
+   "fieldtype": "Datetime",
+   "label": "Resolved At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_error",
+   "fieldtype": "Section Break",
+   "label": "Error Detail"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Text",
+   "label": "Error Message",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "stack_trace",
+   "fieldtype": "Long Text",
+   "label": "Stack Trace"
+  },
+  {
+   "fieldname": "section_data",
+   "fieldtype": "Section Break",
+   "label": "Source Data"
+  },
+  {
+   "fieldname": "row_number",
+   "fieldtype": "Int",
+   "label": "Source Row Number"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "raw_data_snapshot",
+   "fieldtype": "Long Text",
+   "label": "Raw Data Snapshot (JSON)"
+  },
+  {
+   "fieldname": "section_resolution",
+   "fieldtype": "Section Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "resolution_notes",
+   "fieldtype": "Small Text",
+   "label": "Resolution Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Import Error Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "search_fields": "import_batch,error_type,is_resolved",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

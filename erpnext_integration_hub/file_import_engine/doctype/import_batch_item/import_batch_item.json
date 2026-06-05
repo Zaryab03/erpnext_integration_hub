@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "hash",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "import_batch",
+  "row_number",
+  "status",
+  "error_type",
+  "column_break_1",
+  "created_doctype",
+  "created_document",
+  "retry_count",
+  "last_retry_at",
+  "can_retry",
+  "section_data",
+  "raw_data",
+  "mapped_data",
+  "section_error",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "import_batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Import Batch",
+   "options": "Import Batch",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "row_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Row #"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nProcessing\nSuccess\nError\nSkipped",
+   "search_index": 1
+  },
+  {
+   "fieldname": "error_type",
+   "fieldtype": "Select",
+   "label": "Error Type",
+   "options": "\nParse\nMapping\nValidation\nCreation\nDuplicate\nSystem",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "created_doctype",
+   "fieldtype": "Data",
+   "label": "Created DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_document",
+   "fieldtype": "Data",
+   "label": "Created Document",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "retry_count",
+   "fieldtype": "Int",
+   "label": "Retry Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_retry_at",
+   "fieldtype": "Datetime",
+   "label": "Last Retry At",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "can_retry",
+   "fieldtype": "Check",
+   "label": "Can Retry"
+  },
+  {
+   "fieldname": "section_data",
+   "fieldtype": "Section Break",
+   "label": "Data"
+  },
+  {
+   "fieldname": "raw_data",
+   "fieldtype": "Long Text",
+   "label": "Raw Data (JSON)"
+  },
+  {
+   "fieldname": "mapped_data",
+   "fieldtype": "Long Text",
+   "label": "Mapped Data (JSON)"
+  },
+  {
+   "fieldname": "section_error",
+   "fieldtype": "Section Break",
+   "label": "Error"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Text",
+   "label": "Error Message"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Import Batch Item",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  },
+  {
+   "read": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "sort_field": "row_number",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 0
+}

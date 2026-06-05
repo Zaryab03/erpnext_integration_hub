@@ -1,0 +1,3 @@
+# Patches are executed in order by bench migrate.
+# Format: dotted.path.to.patch_function
+# erpnext_integration_hub.patches.v1_0.example_patch

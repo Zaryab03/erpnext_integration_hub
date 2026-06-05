@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "hash",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "import_batch",
+  "import_batch_item",
+  "created_at",
+  "created_by",
+  "column_break_1",
+  "target_doctype",
+  "document_name",
+  "company",
+  "document_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "import_batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Import Batch",
+   "options": "Import Batch",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "import_batch_item",
+   "fieldtype": "Link",
+   "label": "Batch Item",
+   "options": "Import Batch Item",
+   "search_index": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Created At",
+   "reqd": 1
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "DocType Created",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Name",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "search_index": 1
+  },
+  {
+   "fieldname": "document_status",
+   "fieldtype": "Data",
+   "label": "Status at Creation"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Document Creation Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Integration Manager"
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  },
+  {
+   "read": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "sort_field": "created_at",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

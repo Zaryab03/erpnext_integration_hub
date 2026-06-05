@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "hash",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "sftp_import_profile",
+  "checked_at",
+  "status",
+  "column_break_1",
+  "files_found",
+  "files_downloaded",
+  "files_skipped",
+  "batches_created",
+  "section_error",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "sftp_import_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "SFTP Profile",
+   "options": "SFTP Import Profile",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "checked_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Checked At",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Success\nNo Files\nConnection Error\nAuth Error\nError",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "files_found",
+   "fieldtype": "Int",
+   "label": "Files Found"
+  },
+  {
+   "default": "0",
+   "fieldname": "files_downloaded",
+   "fieldtype": "Int",
+   "label": "Files Downloaded"
+  },
+  {
+   "default": "0",
+   "fieldname": "files_skipped",
+   "fieldtype": "Int",
+   "label": "Files Skipped"
+  },
+  {
+   "default": "0",
+   "fieldname": "batches_created",
+   "fieldtype": "Int",
+   "label": "Batches Created"
+  },
+  {
+   "fieldname": "section_error",
+   "fieldtype": "Section Break",
+   "label": "Error"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "SFTP Import Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "Integration Manager"
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  },
+  {
+   "read": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "sort_field": "checked_at",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:source_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_name",
+  "source_type",
+  "company",
+  "is_active",
+  "column_break_1",
+  "target_document_type",
+  "mapping_profile",
+  "duplicate_detection_field",
+  "section_ingestion",
+  "file_import_profile",
+  "email_import_account",
+  "sftp_import_profile",
+  "section_behavior",
+  "auto_submit",
+  "require_approval",
+  "notify_on_completion",
+  "completion_notify_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "source_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "source_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source Type",
+   "options": "\nFile Upload\nEmail\nSFTP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_document_type",
+   "fieldtype": "Select",
+   "label": "Target Document Type",
+   "options": "\nSales Order\nPurchase Order\nDelivery Note\nSales Invoice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mapping_profile",
+   "fieldtype": "Link",
+   "label": "Field Mapping Profile",
+   "options": "Field Mapping Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "duplicate_detection_field",
+   "fieldtype": "Data",
+   "label": "Duplicate Detection Field",
+   "description": "Source field used to detect and skip duplicate records"
+  },
+  {
+   "fieldname": "section_ingestion",
+   "fieldtype": "Section Break",
+   "label": "Ingestion Configuration"
+  },
+  {
+   "depends_on": "eval:doc.source_type !== 'Email'",
+   "fieldname": "file_import_profile",
+   "fieldtype": "Link",
+   "label": "File Import Profile",
+   "options": "File Import Profile"
+  },
+  {
+   "depends_on": "eval:doc.source_type === 'Email'",
+   "fieldname": "email_import_account",
+   "fieldtype": "Link",
+   "label": "Email Import Account",
+   "options": "Email Import Account"
+  },
+  {
+   "depends_on": "eval:doc.source_type === 'SFTP'",
+   "fieldname": "sftp_import_profile",
+   "fieldtype": "Link",
+   "label": "SFTP Import Profile",
+   "options": "SFTP Import Profile"
+  },
+  {
+   "fieldname": "section_behavior",
+   "fieldtype": "Section Break",
+   "label": "Processing Behavior"
+  },
+  {
+   "default": "0",
+   "fieldname": "auto_submit",
+   "fieldtype": "Check",
+   "label": "Auto-Submit Created Documents"
+  },
+  {
+   "default": "0",
+   "fieldname": "require_approval",
+   "fieldtype": "Check",
+   "label": "Require Approval Before Processing"
+  },
+  {
+   "default": "0",
+   "fieldname": "notify_on_completion",
+   "fieldtype": "Check",
+   "label": "Notify on Completion"
+  },
+  {
+   "depends_on": "eval:doc.notify_on_completion",
+   "fieldname": "completion_notify_email",
+   "fieldtype": "Data",
+   "label": "Completion Notification Email",
+   "options": "Email"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Import Source",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Integration Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Integration Operator"
+  },
+  {
+   "read": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "search_fields": "source_name,source_type,company",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

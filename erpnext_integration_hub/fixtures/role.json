@@ -1,0 +1,20 @@
+[
+ {
+  "doctype": "Role",
+  "name": "Integration Manager",
+  "desk_access": 1,
+  "is_custom": 1
+ },
+ {
+  "doctype": "Role",
+  "name": "Integration Operator",
+  "desk_access": 1,
+  "is_custom": 1
+ },
+ {
+  "doctype": "Role",
+  "name": "Integration Viewer",
+  "desk_access": 1,
+  "is_custom": 1
+ }
+]

@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sequence",
+  "source_field",
+  "target_field",
+  "is_required",
+  "transformation_type",
+  "column_break_1",
+  "default_value",
+  "lookup_doctype",
+  "lookup_source_field",
+  "lookup_return_field",
+  "expression",
+  "custom_function",
+  "description"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "sequence",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Seq"
+  },
+  {
+   "columns": 2,
+   "fieldname": "source_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Field",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "target_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Target Field (fieldname)",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_required",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Required"
+  },
+  {
+   "columns": 2,
+   "fieldname": "transformation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transformation",
+   "options": "None\nStatic Value\nLookup\nExpression\nCustom Function"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Static Value'||!doc.transformation_type||doc.transformation_type==='None'",
+   "fieldname": "default_value",
+   "fieldtype": "Data",
+   "label": "Default / Static Value"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Lookup'",
+   "fieldname": "lookup_doctype",
+   "fieldtype": "Link",
+   "label": "Lookup DocType",
+   "options": "DocType"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Lookup'",
+   "fieldname": "lookup_source_field",
+   "fieldtype": "Data",
+   "label": "Match Field (in Lookup DocType)"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Lookup'",
+   "fieldname": "lookup_return_field",
+   "fieldtype": "Data",
+   "label": "Return Field (from Lookup DocType)"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Expression'",
+   "description": "Python expression. Use `value` for the source field value, `row` for the full row dict.",
+   "fieldname": "expression",
+   "fieldtype": "Code",
+   "label": "Expression",
+   "options": "Python"
+  },
+  {
+   "depends_on": "eval:doc.transformation_type==='Custom Function'",
+   "description": "Dotted path e.g. erpnext_integration_hub.mapping_engine.custom_functions.my_fn",
+   "fieldname": "custom_function",
+   "fieldtype": "Data",
+   "label": "Custom Function Path"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Field Mapping Rule",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "sequence",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 0
+}

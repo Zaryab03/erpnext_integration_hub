@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:profile_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile_name",
+  "target_doctype",
+  "is_active",
+  "column_break_1",
+  "company",
+  "description",
+  "header_case_sensitive",
+  "section_rules",
+  "mapping_rules",
+  "section_child_tables",
+  "child_table_mappings"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Profile Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Target DocType",
+   "options": "\nSales Order\nPurchase Order\nDelivery Note\nSales Invoice",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Leave blank to apply to all companies",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "default": "0",
+   "description": "If unchecked, source column headers are normalised to lowercase with underscores",
+   "fieldname": "header_case_sensitive",
+   "fieldtype": "Check",
+   "label": "Header Case-Sensitive"
+  },
+  {
+   "fieldname": "section_rules",
+   "fieldtype": "Section Break",
+   "label": "Field Mapping Rules"
+  },
+  {
+   "fieldname": "mapping_rules",
+   "fieldtype": "Table",
+   "label": "Mapping Rules",
+   "options": "Field Mapping Rule"
+  },
+  {
+   "fieldname": "section_child_tables",
+   "fieldtype": "Section Break",
+   "label": "Child Table Mappings"
+  },
+  {
+   "fieldname": "child_table_mappings",
+   "fieldtype": "Table",
+   "label": "Child Table Mappings",
+   "options": "Child Table Mapping"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Field Mapping Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

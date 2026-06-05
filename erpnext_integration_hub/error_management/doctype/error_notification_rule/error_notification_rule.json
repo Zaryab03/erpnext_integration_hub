@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:rule_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_name",
+  "is_active",
+  "import_source",
+  "column_break_1",
+  "error_types",
+  "min_error_count",
+  "notification_interval_minutes",
+  "last_notified_at",
+  "section_recipients",
+  "notify_email",
+  "notify_users"
+ ],
+ "fields": [
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Rule Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "description": "Leave blank to apply to all sources",
+   "fieldname": "import_source",
+   "fieldtype": "Link",
+   "label": "Import Source",
+   "options": "Import Source"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Comma-separated error types: Connection,Authentication,Parse,Mapping,Validation,Creation,System",
+   "fieldname": "error_types",
+   "fieldtype": "Data",
+   "label": "Error Types (comma-separated)"
+  },
+  {
+   "default": "1",
+   "fieldname": "min_error_count",
+   "fieldtype": "Int",
+   "label": "Min Errors Before Notifying",
+   "reqd": 1
+  },
+  {
+   "default": "60",
+   "fieldname": "notification_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Notification Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_notified_at",
+   "fieldtype": "Datetime",
+   "label": "Last Notified At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_recipients",
+   "fieldtype": "Section Break",
+   "label": "Recipients"
+  },
+  {
+   "description": "Additional email address (outside Frappe Users)",
+   "fieldname": "notify_email",
+   "fieldtype": "Data",
+   "label": "Notify Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "notify_users",
+   "fieldtype": "Table MultiSelect",
+   "label": "Notify Users",
+   "options": "Integration Hub Notify User"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Error Notification Rule",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

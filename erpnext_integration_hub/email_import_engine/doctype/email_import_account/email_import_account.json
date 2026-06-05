@@ -1,0 +1,204 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:account_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "account_name",
+  "company",
+  "is_active",
+  "import_source",
+  "column_break_1",
+  "email_address",
+  "imap_server",
+  "imap_port",
+  "use_ssl",
+  "section_credentials",
+  "username",
+  "password",
+  "section_filters",
+  "sender_whitelist",
+  "subject_contains",
+  "allowed_extensions",
+  "section_folders",
+  "processed_folder",
+  "error_folder",
+  "section_state",
+  "fetch_interval_minutes",
+  "last_fetched_uid",
+  "last_fetched_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Account Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "import_source",
+   "fieldtype": "Link",
+   "label": "Import Source",
+   "options": "Import Source",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "imap_server",
+   "fieldtype": "Data",
+   "label": "IMAP Server",
+   "reqd": 1
+  },
+  {
+   "default": "993",
+   "fieldname": "imap_port",
+   "fieldtype": "Int",
+   "label": "IMAP Port",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "use_ssl",
+   "fieldtype": "Check",
+   "label": "Use SSL"
+  },
+  {
+   "fieldname": "section_credentials",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "username",
+   "fieldtype": "Data",
+   "label": "Username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_filters",
+   "fieldtype": "Section Break",
+   "label": "Filters"
+  },
+  {
+   "description": "One email address per line. If populated, only emails from these senders are processed.",
+   "fieldname": "sender_whitelist",
+   "fieldtype": "Text",
+   "label": "Sender Whitelist"
+  },
+  {
+   "description": "Process only emails whose subject contains this string (case-insensitive)",
+   "fieldname": "subject_contains",
+   "fieldtype": "Data",
+   "label": "Subject Contains"
+  },
+  {
+   "default": ".xlsx,.csv,.xml,.json",
+   "fieldname": "allowed_extensions",
+   "fieldtype": "Data",
+   "label": "Allowed Attachment Extensions"
+  },
+  {
+   "fieldname": "section_folders",
+   "fieldtype": "Section Break",
+   "label": "IMAP Folders"
+  },
+  {
+   "description": "IMAP folder to move processed emails to. Leave blank to leave in inbox.",
+   "fieldname": "processed_folder",
+   "fieldtype": "Data",
+   "label": "Processed Folder"
+  },
+  {
+   "description": "IMAP folder to move failed emails to.",
+   "fieldname": "error_folder",
+   "fieldtype": "Data",
+   "label": "Error Folder"
+  },
+  {
+   "fieldname": "section_state",
+   "fieldtype": "Section Break",
+   "label": "State"
+  },
+  {
+   "default": "5",
+   "fieldname": "fetch_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Fetch Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_fetched_uid",
+   "fieldtype": "Data",
+   "label": "Last Fetched UID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_fetched_at",
+   "fieldtype": "Datetime",
+   "label": "Last Fetched At",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Email Import Account",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

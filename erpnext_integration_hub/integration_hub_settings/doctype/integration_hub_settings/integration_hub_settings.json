@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "default_company",
+  "column_break_general",
+  "error_alert_email",
+  "section_processing",
+  "max_retry_attempts",
+  "retry_interval_minutes",
+  "processing_batch_size",
+  "max_file_size_mb",
+  "column_break_processing",
+  "email_fetch_interval_minutes",
+  "sftp_check_interval_minutes",
+  "allowed_file_extensions",
+  "section_audit",
+  "enable_audit_log",
+  "archive_processed_files",
+  "log_retention_days"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Integration Hub"
+  },
+  {
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "column_break_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "error_alert_email",
+   "fieldtype": "Data",
+   "label": "Error Alert Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "section_processing",
+   "fieldtype": "Section Break",
+   "label": "Processing"
+  },
+  {
+   "default": "3",
+   "fieldname": "max_retry_attempts",
+   "fieldtype": "Int",
+   "label": "Max Retry Attempts",
+   "reqd": 1
+  },
+  {
+   "default": "30",
+   "fieldname": "retry_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Retry Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "default": "500",
+   "fieldname": "processing_batch_size",
+   "fieldtype": "Int",
+   "label": "Processing Batch Size",
+   "reqd": 1
+  },
+  {
+   "default": "50",
+   "fieldname": "max_file_size_mb",
+   "fieldtype": "Int",
+   "label": "Max File Size (MB)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_processing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "fieldname": "email_fetch_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Email Fetch Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "default": "10",
+   "fieldname": "sftp_check_interval_minutes",
+   "fieldtype": "Int",
+   "label": "SFTP Check Interval (Minutes)",
+   "reqd": 1
+  },
+  {
+   "default": ".xlsx,.csv,.xml,.json",
+   "fieldname": "allowed_file_extensions",
+   "fieldtype": "Data",
+   "label": "Allowed File Extensions"
+  },
+  {
+   "fieldname": "section_audit",
+   "fieldtype": "Section Break",
+   "label": "Audit & Archival"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_audit_log",
+   "fieldtype": "Check",
+   "label": "Enable Audit Log"
+  },
+  {
+   "default": "0",
+   "fieldname": "archive_processed_files",
+   "fieldtype": "Check",
+   "label": "Archive Processed Files"
+  },
+  {
+   "default": "90",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Log Retention (Days)",
+   "reqd": 1
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Integration Hub Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

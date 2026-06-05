@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:profile_name",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile_name",
+  "file_format",
+  "column_break_1",
+  "skip_empty_rows",
+  "date_format",
+  "decimal_separator",
+  "thousand_separator",
+  "section_excel",
+  "excel_sheet_name",
+  "excel_header_row",
+  "excel_data_start_row",
+  "section_csv",
+  "csv_delimiter",
+  "csv_encoding",
+  "csv_has_header",
+  "csv_quote_char",
+  "section_xml",
+  "xml_root_element",
+  "xml_record_element",
+  "xml_namespace",
+  "section_json",
+  "json_records_path",
+  "section_notes",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Profile Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "file_format",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "File Format",
+   "options": "\nExcel\nCSV\nXML\nJSON",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "skip_empty_rows",
+   "fieldtype": "Check",
+   "label": "Skip Empty Rows"
+  },
+  {
+   "description": "Python strptime format e.g. %d/%m/%Y",
+   "fieldname": "date_format",
+   "fieldtype": "Data",
+   "label": "Date Format"
+  },
+  {
+   "default": "Dot",
+   "fieldname": "decimal_separator",
+   "fieldtype": "Select",
+   "label": "Decimal Separator",
+   "options": "Dot\nComma"
+  },
+  {
+   "default": "None",
+   "fieldname": "thousand_separator",
+   "fieldtype": "Select",
+   "label": "Thousand Separator",
+   "options": "None\nComma\nDot"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.file_format==='Excel'",
+   "fieldname": "section_excel",
+   "fieldtype": "Section Break",
+   "label": "Excel Settings"
+  },
+  {
+   "fieldname": "excel_sheet_name",
+   "fieldtype": "Data",
+   "label": "Sheet Name",
+   "description": "Leave blank to use the first sheet"
+  },
+  {
+   "default": "1",
+   "fieldname": "excel_header_row",
+   "fieldtype": "Int",
+   "label": "Header Row Number"
+  },
+  {
+   "default": "2",
+   "fieldname": "excel_data_start_row",
+   "fieldtype": "Int",
+   "label": "Data Start Row"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.file_format==='CSV'",
+   "fieldname": "section_csv",
+   "fieldtype": "Section Break",
+   "label": "CSV Settings"
+  },
+  {
+   "default": "Comma",
+   "fieldname": "csv_delimiter",
+   "fieldtype": "Select",
+   "label": "Delimiter",
+   "options": "Comma\nSemicolon\nTab\nPipe"
+  },
+  {
+   "default": "UTF-8",
+   "fieldname": "csv_encoding",
+   "fieldtype": "Select",
+   "label": "Encoding",
+   "options": "UTF-8\nUTF-16\nLatin-1\nWindows-1252"
+  },
+  {
+   "default": "1",
+   "fieldname": "csv_has_header",
+   "fieldtype": "Check",
+   "label": "First Row is Header"
+  },
+  {
+   "default": "\"",
+   "fieldname": "csv_quote_char",
+   "fieldtype": "Data",
+   "label": "Quote Character"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.file_format==='XML'",
+   "fieldname": "section_xml",
+   "fieldtype": "Section Break",
+   "label": "XML Settings"
+  },
+  {
+   "description": "XPath to the element containing all records e.g. Orders",
+   "fieldname": "xml_root_element",
+   "fieldtype": "Data",
+   "label": "Root Element"
+  },
+  {
+   "description": "XPath to each individual record element e.g. Order",
+   "fieldname": "xml_record_element",
+   "fieldtype": "Data",
+   "label": "Record Element"
+  },
+  {
+   "description": "XML namespace URI if applicable",
+   "fieldname": "xml_namespace",
+   "fieldtype": "Data",
+   "label": "XML Namespace"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.file_format==='JSON'",
+   "fieldname": "section_json",
+   "fieldtype": "Section Break",
+   "label": "JSON Settings"
+  },
+  {
+   "description": "JSONPath to records array e.g. $.orders[*] or leave blank if root is an array",
+   "fieldname": "json_records_path",
+   "fieldtype": "Data",
+   "label": "Records JSONPath"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "File Import Profile",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Integration Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Integration Operator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

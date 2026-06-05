@@ -1,0 +1,311 @@
+{
+ "actions": [],
+ "allow_import": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "import_source",
+  "company",
+  "batch_date",
+  "status",
+  "column_break_1",
+  "source_type",
+  "target_document_type",
+  "file_format",
+  "job_id",
+  "section_file",
+  "file_name",
+  "file_url",
+  "email_import_log",
+  "sftp_import_log",
+  "section_progress",
+  "total_records",
+  "processed_records",
+  "success_count",
+  "error_count",
+  "skipped_count",
+  "column_break_progress",
+  "started_at",
+  "completed_at",
+  "section_notes",
+  "error_message",
+  "processing_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "IB-BATCH-.YYYY.-.MM.-.DD.-.#####"
+  },
+  {
+   "fieldname": "import_source",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Import Source",
+   "options": "Import Source",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "import_source.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "batch_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Batch Date",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nQueued\nProcessing\nPending Approval\nPartially Processed\nCompleted\nFailed\nCancelled\nArchived",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "import_source.source_type",
+   "fieldname": "source_type",
+   "fieldtype": "Data",
+   "label": "Source Type",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "import_source.target_document_type",
+   "fieldname": "target_document_type",
+   "fieldtype": "Data",
+   "label": "Target Document Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_format",
+   "fieldtype": "Select",
+   "label": "File Format",
+   "options": "\nExcel\nCSV\nXML\nJSON"
+  },
+  {
+   "fieldname": "job_id",
+   "fieldtype": "Data",
+   "label": "Background Job ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_file",
+   "fieldtype": "Section Break",
+   "label": "Source File"
+  },
+  {
+   "fieldname": "file_name",
+   "fieldtype": "Data",
+   "label": "File Name"
+  },
+  {
+   "fieldname": "file_url",
+   "fieldtype": "Attach",
+   "label": "File"
+  },
+  {
+   "fieldname": "email_import_log",
+   "fieldtype": "Link",
+   "label": "Email Import Log",
+   "options": "Email Import Log"
+  },
+  {
+   "fieldname": "sftp_import_log",
+   "fieldtype": "Link",
+   "label": "SFTP Import Log",
+   "options": "SFTP Import Log"
+  },
+  {
+   "fieldname": "section_progress",
+   "fieldtype": "Section Break",
+   "label": "Processing Progress"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_records",
+   "fieldtype": "Int",
+   "label": "Total Records",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "processed_records",
+   "fieldtype": "Int",
+   "label": "Processed",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "success_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Success",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "error_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Errors",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "skipped_count",
+   "fieldtype": "Int",
+   "label": "Skipped",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_progress",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Started At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "processing_notes",
+   "fieldtype": "Text",
+   "label": "Processing Notes",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Items",
+   "link_doctype": "Import Batch Item",
+   "link_fieldname": "import_batch"
+  },
+  {
+   "group": "Errors",
+   "link_doctype": "Import Error Log",
+   "link_fieldname": "import_batch"
+  },
+  {
+   "group": "Created Documents",
+   "link_doctype": "Document Creation Log",
+   "link_fieldname": "import_batch"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integration Hub",
+ "name": "Import Batch",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Integration Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Integration Operator",
+   "submit": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Integration Viewer"
+  }
+ ],
+ "search_fields": "import_source,company,status",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Pending"
+  },
+  {
+   "color": "Yellow",
+   "title": "Queued"
+  },
+  {
+   "color": "Blue",
+   "title": "Processing"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  },
+  {
+   "color": "Orange",
+   "title": "Partially Processed"
+  },
+  {
+   "color": "Red",
+   "title": "Failed"
+  }
+ ],
+ "track_changes": 1
+}
