@@ -1,1 +1,7 @@
-ERPNext Integration Hub
+File Import Engine
+Email Import Engine
+SFTP Import Engine
+Mapping Engine
+Document Factory
+Error Management
+Integration Hub Settings

@@ -2,18 +2,21 @@
  {
   "doctype": "Role",
   "name": "Integration Manager",
+  "role_name": "Integration Manager",
   "desk_access": 1,
   "is_custom": 1
  },
  {
   "doctype": "Role",
   "name": "Integration Operator",
+  "role_name": "Integration Operator",
   "desk_access": 1,
   "is_custom": 1
  },
  {
   "doctype": "Role",
   "name": "Integration Viewer",
+  "role_name": "Integration Viewer",
   "desk_access": 1,
   "is_custom": 1
  }
