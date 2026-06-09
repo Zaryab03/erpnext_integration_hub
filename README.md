@@ -72,15 +72,7 @@ python3 --version
 # Must show: Python 3.10.x or higher
 ```
 
-### 4. Redis
-
-Redis must be running for the background job queue. Frappe bench manages this automatically in production mode, but in development you may need to start it manually:
-
-```bash
-bench start   # starts Redis along with all other bench services
-```
-
-### 5. Python Libraries
+### 4. Python Libraries
 
 These are installed automatically when you install the app (`pip` handles them). Listed here so your server's network firewall/proxy allows access to PyPI:
 
@@ -128,17 +120,6 @@ This will:
 bench --site your-site.com migrate
 ```
 
-### Step 4 — Restart bench
-
-```bash
-bench restart
-```
-
-### Step 5 — Verify installation
-
-Log into your ERPNext desk. You should see **Integration Hub** in the left sidebar or the module list. Navigate to **Integration Hub Settings** and enable the hub.
-
----
 
 ## Quick Start
 
@@ -185,17 +166,7 @@ bench --site your-site.com run-tests --app erpnext_integration_hub
 
 Expected output: **49 tests, 0 failures.**
 
----
 
-## Uninstalling
-
-```bash
-bench --site your-site.com uninstall-app erpnext_integration_hub
-```
-
-The app will refuse to uninstall if any batches are actively processing, to prevent data loss. Cancel or wait for them to complete first.
-
----
 
 ## How This Helps in Industry
 
@@ -215,18 +186,7 @@ A company uses a legacy order management system that cannot connect directly to 
 
 The app is designed for multi-company ERPNext setups. Each Import Source is linked to a specific company, and users only see data belonging to their company. A holding group with multiple subsidiary companies can share one ERPNext instance and one Integration Hub installation, with each subsidiary's team working in complete isolation.
 
-### Where to Get Help
 
-| Resource | What you'll find |
-|---|---|
-| **ERPNext Community Forum** — [discuss.erpnext.com](https://discuss.erpnext.com) | ERPNext and Frappe framework questions, answered by the community and the core team |
-| **Frappe Framework Docs** — [frappeframework.com/docs](https://frappeframework.com/docs) | DocType concepts, controller hooks, background jobs, permissions |
-| **ERPNext Docs** — [docs.erpnext.com](https://docs.erpnext.com) | Sales Order, Purchase Order, and other document workflows that this app creates |
-| **GitHub Issues** | Report bugs or request features on this repository's Issues tab |
-| **Frappe Cloud** — [frappecloud.com](https://frappecloud.com) | Managed ERPNext hosting — the Integration Hub is compatible with Frappe Cloud |
-| **ERPNext Implementation Partners** | For production deployments with custom mapping requirements, certified ERPNext partners provide paid implementation and support services. Find them at [erpnext.com/partners](https://erpnext.com/partners) |
-
----
 
 ## Architecture Overview
 
