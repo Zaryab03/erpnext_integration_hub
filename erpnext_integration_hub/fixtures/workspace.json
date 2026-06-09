@@ -1,0 +1,183 @@
+[
+ {
+  "doctype": "Workspace",
+  "name": "Integration Hub",
+  "title": "Integration Hub",
+  "label": "Integration Hub",
+  "sequence_id": 1.0,
+  "module": "File Import Engine",
+  "category": "Modules",
+  "icon": "octicon octicon-broadcast",
+  "colour": "#4CAF50",
+  "is_standard": 0,
+  "public": 1,
+  "hide_custom": 0,
+  "shortcuts": [
+   {
+    "type": "DocType",
+    "label": "Import Batch",
+    "link_to": "Import Batch",
+    "doc_view": "List",
+    "color": "blue"
+   },
+   {
+    "type": "DocType",
+    "label": "Import Source",
+    "link_to": "Import Source",
+    "doc_view": "List",
+    "color": "green"
+   },
+   {
+    "type": "DocType",
+    "label": "Import Error Log",
+    "link_to": "Import Error Log",
+    "doc_view": "List",
+    "color": "red"
+   },
+   {
+    "type": "DocType",
+    "label": "Field Mapping Profile",
+    "link_to": "Field Mapping Profile",
+    "doc_view": "List",
+    "color": "orange"
+   },
+   {
+    "type": "DocType",
+    "label": "Document Creation Log",
+    "link_to": "Document Creation Log",
+    "doc_view": "List",
+    "color": "grey"
+   },
+   {
+    "type": "DocType",
+    "label": "Integration Hub Settings",
+    "link_to": "Integration Hub Settings",
+    "doc_view": "Form",
+    "color": "grey"
+   }
+  ],
+  "links": [
+   {
+    "type": "Card Break",
+    "label": "Imports",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Import Batch",
+    "link_type": "DocType",
+    "link_to": "Import Batch",
+    "is_query_report": 0,
+    "icon": "octicon octicon-inbox"
+   },
+   {
+    "type": "Link",
+    "label": "Import Batch Item",
+    "link_type": "DocType",
+    "link_to": "Import Batch Item",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Import Error Log",
+    "link_type": "DocType",
+    "link_to": "Import Error Log",
+    "is_query_report": 0,
+    "icon": "octicon octicon-alert"
+   },
+   {
+    "type": "Link",
+    "label": "Document Creation Log",
+    "link_type": "DocType",
+    "link_to": "Document Creation Log",
+    "is_query_report": 0
+   },
+   {
+    "type": "Card Break",
+    "label": "Configuration",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Import Source",
+    "link_type": "DocType",
+    "link_to": "Import Source",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "File Import Profile",
+    "link_type": "DocType",
+    "link_to": "File Import Profile",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Field Mapping Profile",
+    "link_type": "DocType",
+    "link_to": "Field Mapping Profile",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Value Transformation",
+    "link_type": "DocType",
+    "link_to": "Value Transformation",
+    "is_query_report": 0
+   },
+   {
+    "type": "Card Break",
+    "label": "Connectors",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Email Import Account",
+    "link_type": "DocType",
+    "link_to": "Email Import Account",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Email Import Log",
+    "link_type": "DocType",
+    "link_to": "Email Import Log",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "SFTP Import Profile",
+    "link_type": "DocType",
+    "link_to": "SFTP Import Profile",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "SFTP Import Log",
+    "link_type": "DocType",
+    "link_to": "SFTP Import Log",
+    "is_query_report": 0
+   },
+   {
+    "type": "Card Break",
+    "label": "Settings",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Integration Hub Settings",
+    "link_type": "DocType",
+    "link_to": "Integration Hub Settings",
+    "is_query_report": 0
+   },
+   {
+    "type": "Link",
+    "label": "Error Notification Rule",
+    "link_type": "DocType",
+    "link_to": "Error Notification Rule",
+    "is_query_report": 0
+   }
+  ],
+  "content": "[{\"id\": \"ih-header-1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"ih-sc-1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Import Batch\", \"col\": 3}}, {\"id\": \"ih-sc-2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Import Source\", \"col\": 3}}, {\"id\": \"ih-sc-3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Import Error Log\", \"col\": 3}}, {\"id\": \"ih-sc-4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Field Mapping Profile\", \"col\": 3}}, {\"id\": \"ih-sc-5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Document Creation Log\", \"col\": 3}}, {\"id\": \"ih-sc-6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Integration Hub Settings\", \"col\": 3}}, {\"id\": \"ih-spacer-1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"ih-header-2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Modules</b></span>\", \"col\": 12}}, {\"id\": \"ih-card-1\", \"type\": \"card\", \"data\": {\"card_name\": \"Imports\", \"col\": 4}}, {\"id\": \"ih-card-2\", \"type\": \"card\", \"data\": {\"card_name\": \"Configuration\", \"col\": 4}}, {\"id\": \"ih-card-3\", \"type\": \"card\", \"data\": {\"card_name\": \"Connectors\", \"col\": 4}}, {\"id\": \"ih-card-4\", \"type\": \"card\", \"data\": {\"card_name\": \"Settings\", \"col\": 4}}]"
+ }
+]

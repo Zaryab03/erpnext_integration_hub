@@ -79,6 +79,8 @@ has_permission = {
 # creates them automatically. This is the correct Frappe mechanism — not
 # after_install Python code that is hard to re-run.
 fixtures = [
+	# Roles: created from fixtures/role.json on bench migrate / install.
+	# Using filter-based export so that bench export-fixtures regenerates them.
 	{
 		"dt": "Role",
 		"filters": [["name", "in", [
@@ -87,9 +89,12 @@ fixtures = [
 			"Integration Viewer",
 		]]],
 	},
+	# Workspace: fixtures/workspace.json defines the Integration Hub desk module.
+	# The Workspace module field references "File Import Engine" (a valid module)
+	# so Frappe's sync logic can resolve it.
 	{
 		"dt": "Workspace",
-		"filters": [["module", "=", "ERPNext Integration Hub"]],
+		"filters": [["name", "=", "Integration Hub"]],
 	},
 ]
 
@@ -106,25 +111,20 @@ jinja = {
 # This preserves full ERPNext upgrade compatibility.
 override_doctype_class = {}
 
-# ─── Whitelisted API methods ──────────────────────────────────────────────────
-# Explicitly registering all whitelisted methods here (in addition to the
-# @frappe.whitelist() decorator) provides a single place to audit what is
-# exposed to HTTP callers.
+# ─── API surface (documentation comment only) ─────────────────────────────────
+# Frappe registers whitelisted methods via the @frappe.whitelist() decorator at
+# import time — there is no hooks.py key for this.  The list below is kept as
+# a comment so there is one canonical place to audit the HTTP surface.
 #
-# All methods enforce their own role checks via frappe.only_for() — the
-# whitelist decorator alone only prevents anonymous access, it does not
-# enforce role-based restrictions.
-whitelisted_methods = [
-	"erpnext_integration_hub.api.import_api.upload_file_for_import",
-	"erpnext_integration_hub.api.import_api.get_batch_status",
-	"erpnext_integration_hub.api.import_api.preview_file_mapping",
-	"erpnext_integration_hub.api.import_api.retry_batch_item",
-	"erpnext_integration_hub.api.import_api.cancel_batch",
-	"erpnext_integration_hub.api.import_api.validate_sftp_connection",
-	"erpnext_integration_hub.api.import_api.validate_email_connection",
-	"erpnext_integration_hub.api.import_api.get_import_statistics",
-	"erpnext_integration_hub.api.import_api.resolve_error",
-]
+# erpnext_integration_hub.api.import_api.upload_file_for_import   POST
+# erpnext_integration_hub.api.import_api.get_batch_status         GET
+# erpnext_integration_hub.api.import_api.preview_file_mapping     POST
+# erpnext_integration_hub.api.import_api.retry_batch_item         POST
+# erpnext_integration_hub.api.import_api.cancel_batch             POST
+# erpnext_integration_hub.api.import_api.validate_sftp_connection POST
+# erpnext_integration_hub.api.import_api.validate_email_connection POST
+# erpnext_integration_hub.api.import_api.get_import_statistics    GET
+# erpnext_integration_hub.api.import_api.resolve_error            POST
 
 # ─── App-level includes ───────────────────────────────────────────────────────
 # No global JS includes. Each DocType form JS is scoped to its own file.

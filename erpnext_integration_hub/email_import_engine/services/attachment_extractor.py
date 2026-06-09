@@ -34,6 +34,7 @@ class AttachmentExtractor:
 		batch.import_source = self.import_source_name
 		batch.company = source.company
 		batch.status = "Pending"
+		batch.batch_date = frappe.utils.today()
 		batch.file_name = filename
 		batch.file_url = file_doc.file_url
 		batch.file_format = format_map.get(ext)

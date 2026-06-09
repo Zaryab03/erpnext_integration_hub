@@ -81,6 +81,7 @@ def log_document_created(
 	log.company = company
 	log.document_status = document_status
 	log.created_by = frappe.session.user
+	log.created_at = frappe.utils.now_datetime()
 	log.flags.ignore_permissions = True
 	log.insert(ignore_permissions=True)
 

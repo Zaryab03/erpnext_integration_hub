@@ -70,6 +70,7 @@ def upload_file_for_import(import_source: str, file_content_b64: str = None):
 	batch.import_source = import_source
 	batch.company = source.company
 	batch.status = "Pending"
+	batch.batch_date = frappe.utils.today()
 	batch.file_name = filename
 	batch.file_url = file_doc.file_url
 	batch.file_format = fmt_map.get(ext)
@@ -170,6 +171,32 @@ def retry_batch_item(item_name: str) -> dict:
 	frappe.db.commit()
 
 	return {"status": "queued", "item": item_name}
+
+
+@frappe.whitelist()
+def retry_all_batch_errors(batch_name: str) -> dict:
+	"""Re-queue every errored item in a batch. Called from the Import Batch form."""
+	frappe.only_for(["Integration Manager", "System Manager"])
+
+	batch = frappe.get_doc("Import Batch", batch_name)
+	if batch.docstatus != 1:
+		frappe.throw("Batch must be submitted before items can be retried.", frappe.ValidationError)
+
+	error_items = frappe.get_all(
+		"Import Batch Item",
+		filters={"import_batch": batch_name, "status": "Error", "can_retry": 1},
+		pluck="name",
+	)
+	if not error_items:
+		frappe.throw("No retryable errored items found in this batch.", frappe.ValidationError)
+
+	from erpnext_integration_hub.error_management.services.retry_manager import RetryManager
+	manager = RetryManager()
+	for item_name in error_items:
+		manager._enqueue_retry(item_name)
+
+	frappe.db.commit()
+	return {"status": "queued", "queued_count": len(error_items)}
 
 
 @frappe.whitelist()
