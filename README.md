@@ -1,12 +1,12 @@
 # ERPNext Integration Hub
 
-**Eliminate manual order entry.** ERPNext Integration Hub is a production-ready Frappe app that automatically imports Sales Orders, Purchase Orders, Delivery Notes, and Sales Invoices into ERPNext from files, emails, and SFTP servers — with full mapping control, error tracking, and audit trails.
+**Eliminate manual order entry.** ERPNext Integration Hub is a production ready Frappe app that automatically imports Sales Orders, Purchase Orders, Delivery Notes, and Sales Invoices into ERPNext from files, emails, and SFTP servers with full mapping control, error tracking, and audit trails.
 
 ---
 
 ## What It Does
 
-Most businesses receive orders from customers or suppliers in different formats — an Excel sheet from one customer, a CSV attachment from another, an XML file dropped on an SFTP server by a third-party system. Without an integration hub, someone manually keys all of that data into ERPNext every day. That person makes mistakes, works late, and slows down fulfilment.
+Most businesses receive orders from customers or suppliers in different formats an Excel sheet from one customer, a CSV attachment from another, an XML file dropped on an SFTP server by a third-party system. Without an integration hub, someone manually keys all of that data into ERPNext every day. That person makes mistakes, works late, and slows down fulfilment.
 
 This app solves that problem by giving you:
 
